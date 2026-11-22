@@ -43,8 +43,8 @@ substitutions:
 
 packages:
   core:
-    url: https://github.com/MichalZaniewicz/esphome-waveshare-esp32-s3-audio-va
-    ref: main
+    url: https://github.com/mcroker/esphome-waveshare-esp32-s3-audio-va
+    ref: fix-const-audiofile
     files:
       - base/core.yaml
     refresh: 0s      # fetch the latest main on every build
@@ -63,3 +63,9 @@ packages:
 #
 # mdns:
 #   disabled: true
+
+script:
+  - id: !extend play_sound
+    parameters:
+      priority: bool
+      sound_file: std::add_pointer_t<std::add_const_t<audio::AudioFile>>

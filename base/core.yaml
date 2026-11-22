@@ -186,6 +186,8 @@ esphome:
               - microphone.stop_capture: i2s_mics
             else:
               - logger.log: "Mic enabled"
+  includes:
+    - const_audio.h
 
 # Echo cancellation, pinned so an upstream push cannot break a build.
 # aec_speexdsp comes from a fork of matt123p/esphome-aec v1.01 with two
